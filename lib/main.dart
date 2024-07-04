@@ -29,10 +29,9 @@ class MainApp extends StatelessWidget {
         ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
-        builder: (context, themeMode) {
-          context.read<ThemeCubit>().updateTheme(ThemeMode.light);
+        builder: (context, mode) {
           return MaterialApp(
-            themeMode: themeMode,
+            themeMode: mode,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             debugShowCheckedModeBanner: false,
@@ -41,6 +40,5 @@ class MainApp extends StatelessWidget {
         },
       ),
     );
-    ;
   }
 }
