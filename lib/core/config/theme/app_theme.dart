@@ -12,16 +12,16 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
           filled: true,
           fillColor: Colors.transparent,
-          contentPadding: const EdgeInsets.all(30),
+          contentPadding: const EdgeInsets.all(25),
           hintStyle: const TextStyle(
             color: Color(0xff383838),
             fontWeight: FontWeight.w500,
           ),
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(25),
               borderSide: const BorderSide(color: Colors.white, width: 0.4)),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(25),
               borderSide: const BorderSide(color: Colors.black, width: 0.4))),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
@@ -39,7 +39,7 @@ class AppTheme {
       fontFamily: 'Satoshi',
       sliderTheme: SliderThemeData(
           overlayShape: SliderComponentShape.noOverlay,
-          activeTrackColor: Color(0xffB7B7B7),
+          activeTrackColor: const Color(0xffB7B7B7),
           inactiveTrackColor: Colors.grey.withOpacity(0.3),
           thumbColor: const Color(0xffB7B7B7)),
       inputDecorationTheme: InputDecorationTheme(
@@ -49,12 +49,12 @@ class AppTheme {
             color: Color(0xffA7A7A7),
             fontWeight: FontWeight.w500,
           ),
-          contentPadding: const EdgeInsets.all(30),
+          contentPadding: const EdgeInsets.all(25),
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(25),
               borderSide: const BorderSide(color: Colors.white, width: 0.4)),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(25),
               borderSide: const BorderSide(color: Colors.white, width: 0.4))),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(

@@ -6,6 +6,8 @@ import 'package:spotify_clone/common/widgets/app_bar/app_bar.dart';
 import 'package:spotify_clone/common/widgets/button/basic_app_button.dart';
 import 'package:spotify_clone/core/config/assets/app_images.dart';
 import 'package:spotify_clone/core/config/assets/app_vectors.dart';
+import 'package:spotify_clone/presentation/auth/pages/sign_in.dart';
+import 'package:spotify_clone/presentation/auth/pages/sign_up.dart';
 
 class SignUpOrSignInPage extends StatelessWidget {
   const SignUpOrSignInPage({super.key});
@@ -66,14 +68,28 @@ class SignUpOrSignInPage extends StatelessWidget {
                         Expanded(
                           flex: 1,
                           child: BasicAppButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const SignUpPage(),
+                                ),
+                              );
+                            },
                             title: "Register",
                           ),
                         ),
                         Expanded(
                           flex: 1,
                           child: BasicAppButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const SignInPage(),
+                                ),
+                              );
+                            },
                             title: "Sign In",
                             backgroundColor: Colors.transparent,
                             textColor: context.isDarkMode
