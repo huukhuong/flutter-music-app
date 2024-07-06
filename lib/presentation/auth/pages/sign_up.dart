@@ -41,11 +41,13 @@ class SignUpPage extends StatelessWidget {
                   ),
                 );
               },
+              style: ButtonStyle(
+                padding: WidgetStateProperty.all(EdgeInsets.zero),
+              ),
               child: const Text(
                 "Sign In",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 15,
                   color: AppColors.primary,
                 ),
               ),
