@@ -19,6 +19,9 @@ dependencies:
   path_provider:
   shared_preferences:
   firebase_core:
+  firebase_auth:
+  get_it:
+  dartz:
   
 dev_dependencies:
   flutter_test:
