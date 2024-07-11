@@ -5,7 +5,6 @@ import 'package:spotify_clone/common/widgets/app_bar/app_bar.dart';
 import 'package:spotify_clone/core/config/assets/app_images.dart';
 import 'package:spotify_clone/core/config/assets/app_vectors.dart';
 import 'package:spotify_clone/core/config/theme/app_colors.dart';
-import 'package:spotify_clone/domain/entities/song/song.dart';
 import 'package:spotify_clone/presentation/home/widgets/news_song.dart';
 import 'package:spotify_clone/presentation/home/widgets/playlist.dart';
 

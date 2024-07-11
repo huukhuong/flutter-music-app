@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/core/config/theme/app_colors.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static final lightTheme = ThemeData(
       primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.lightBackground,
       brightness: Brightness.light,
-      fontFamily: 'Satoshi',
+      // fontFamily: 'Satoshi',
+      fontFamily: GoogleFonts.roboto().fontFamily,
       sliderTheme:
           SliderThemeData(overlayShape: SliderComponentShape.noOverlay),
       inputDecorationTheme: InputDecorationTheme(
@@ -36,7 +38,8 @@ class AppTheme {
       primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.darkBackground,
       brightness: Brightness.dark,
-      fontFamily: 'Satoshi',
+      // fontFamily: 'Satoshi',
+      fontFamily: GoogleFonts.roboto().fontFamily,
       sliderTheme: SliderThemeData(
           overlayShape: SliderComponentShape.noOverlay,
           activeTrackColor: const Color(0xffB7B7B7),
