@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify_clone/core/config/theme/app_colors.dart';
 
 void showLoadingDialog(BuildContext context) {
   showDialog(
@@ -12,7 +13,7 @@ void showLoadingDialog(BuildContext context) {
           height: 50,
           child: Center(
             child: CircularProgressIndicator(
-              color: Colors.white,
+              color: AppColors.primary,
             ),
           ),
         ),
