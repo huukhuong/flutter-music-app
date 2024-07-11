@@ -20,6 +20,7 @@ dependencies:
   shared_preferences:
   firebase_core:
   firebase_auth:
+  firebase_database:
   get_it:
   dartz:
   

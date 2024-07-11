@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:spotify_clone/common/helpers/utils.dart';
 import 'package:spotify_clone/common/widgets/app_bar/app_bar.dart';
 import 'package:spotify_clone/common/widgets/button/basic_app_button.dart';
 import 'package:spotify_clone/core/config/assets/app_vectors.dart';
@@ -102,29 +103,32 @@ class SignUpPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 BasicAppButton(
-                    onPressed: () async {
-                      var result = await sl<SignupUsecase>().call(
-                        params: CreateUserReq(
-                          fullName: _fullName.text.toString(),
-                          email: _email.text.toString(),
-                          password: _password.text.toString(),
-                        ),
-                      );
+                  onPressed: () async {
+                    showLoadingDialog(context);
+                    var result = await sl<SignupUsecase>().call(
+                      params: CreateUserReq(
+                        fullName: _fullName.text.toString(),
+                        email: _email.text.toString(),
+                        password: _password.text.toString(),
+                      ),
+                    );
+                    hideLoadingDialog(context);
 
-                      result.fold((ifLeft) {
-                        var snackBar = SnackBar(content: Text(ifLeft));
-                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                      }, (ifRight) {
-                        Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const RootPage(),
-                          ),
-                          (route) => false,
-                        );
-                      });
-                    },
-                    title: "Create Account")
+                    result.fold((ifLeft) {
+                      var snackBar = SnackBar(content: Text(ifLeft));
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }, (ifRight) {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const RootPage(),
+                        ),
+                        (route) => false,
+                      );
+                    });
+                  },
+                  title: "Create Account",
+                ),
               ],
             ),
           ),
