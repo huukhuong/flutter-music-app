@@ -62,62 +62,64 @@ class SignInPage extends StatelessWidget {
           ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 50,
-          horizontal: 25,
-        ),
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text(
-                "Sign In",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 50,
+            horizontal: 25,
+          ),
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Text(
+                  "Sign In",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 40),
-              TextField(
-                decoration: const InputDecoration(hintText: "Email"),
-                controller: _email,
-              ),
-              const SizedBox(height: 20),
-              TextField(
-                decoration: const InputDecoration(hintText: "Password"),
-                controller: _password,
-                obscureText: true,
-                enableSuggestions: false,
-                autocorrect: false,
-              ),
-              const SizedBox(height: 20),
-              BasicAppButton(
-                  onPressed: () async {
-                    var result = await sl<SigninUsecase>().call(
-                      params: SigninUserReq(
-                        email: _email.text.toString(),
-                        password: _password.text.toString(),
-                      ),
-                    );
-
-                    result.fold((ifLeft) {
-                      var snackBar = SnackBar(content: Text(ifLeft));
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    }, (ifRight) {
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const RootPage(),
+                const SizedBox(height: 40),
+                TextField(
+                  decoration: const InputDecoration(hintText: "Email"),
+                  controller: _email,
+                ),
+                const SizedBox(height: 20),
+                TextField(
+                  decoration: const InputDecoration(hintText: "Password"),
+                  controller: _password,
+                  obscureText: true,
+                  enableSuggestions: false,
+                  autocorrect: false,
+                ),
+                const SizedBox(height: 20),
+                BasicAppButton(
+                    onPressed: () async {
+                      var result = await sl<SigninUsecase>().call(
+                        params: SigninUserReq(
+                          email: _email.text.toString(),
+                          password: _password.text.toString(),
                         ),
-                        (route) => false,
                       );
-                    });
-                  },
-                  title: "Create Account")
-            ],
+
+                      result.fold((ifLeft) {
+                        var snackBar = SnackBar(content: Text(ifLeft));
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      }, (ifRight) {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const RootPage(),
+                          ),
+                          (route) => false,
+                        );
+                      });
+                    },
+                    title: "Create Account")
+              ],
+            ),
           ),
         ),
       ),
