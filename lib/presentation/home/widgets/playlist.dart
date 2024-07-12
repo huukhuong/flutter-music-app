@@ -4,6 +4,7 @@ import 'package:spotify_clone/common/helpers/is_dark.dart';
 import 'package:spotify_clone/core/config/theme/app_colors.dart';
 import 'package:spotify_clone/presentation/home/bloc/playlist_cubit.dart';
 import 'package:spotify_clone/presentation/home/bloc/playlist_state.dart';
+import 'package:spotify_clone/presentation/song_player/pages/song_player.dart';
 
 class Playlist extends StatelessWidget {
   const Playlist({super.key});
@@ -49,59 +50,71 @@ class Playlist extends StatelessWidget {
               ...state.playlist.map(
                 (song) => Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                height: 45,
-                                width: 45,
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: context.isDarkMode
-                                        ? AppColors.darkGrey
-                                        : const Color(0xffE6E6E6)),
-                                child: Icon(
-                                  Icons.play_arrow_rounded,
-                                  color: context.isDarkMode
-                                      ? const Color(0xff959595)
-                                      : const Color(0xff555555),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "${song.title}",
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(
-                                    "${song.artist}",
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 11,
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SongPlayerPage(
+                            song: song,
                           ),
-                        ],
-                      ),
-                      const SizedBox(height: 20)
-                    ],
+                        ),
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  height: 45,
+                                  width: 45,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: context.isDarkMode
+                                          ? AppColors.darkGrey
+                                          : const Color(0xffE6E6E6)),
+                                  child: Icon(
+                                    Icons.play_arrow_rounded,
+                                    color: context.isDarkMode
+                                        ? const Color(0xff959595)
+                                        : const Color(0xff555555),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "${song.title}",
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "${song.artist}",
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 11,
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 20)
+                      ],
+                    ),
                   ),
                 ),
               ),

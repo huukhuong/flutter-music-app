@@ -3,9 +3,15 @@ import 'package:spotify_clone/common/helpers/is_dark.dart';
 
 class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
+  final Widget? action;
   final bool? hiddenBack;
 
-  const BasicAppBar({super.key, this.title, this.hiddenBack = false});
+  const BasicAppBar({
+    super.key,
+    this.title,
+    this.hiddenBack = false,
+    this.action,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +41,15 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
             ),
+      actions: [
+        action ??
+            (hiddenBack == true
+                ? Container()
+                : const SizedBox(
+                    width: 50,
+                    height: 50,
+                  )),
+      ],
     );
   }
 

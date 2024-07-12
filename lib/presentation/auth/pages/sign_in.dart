@@ -29,7 +29,6 @@ class SignInPage extends StatelessWidget {
               AppVectors.logo,
               height: 40,
             ),
-            const SizedBox(width: 45)
           ],
         ),
       ),
