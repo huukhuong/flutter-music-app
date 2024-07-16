@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:spotify_clone/data/models/create_user_req.dart';
 import 'package:spotify_clone/data/models/signin_user_req.dart';
 
@@ -19,6 +20,12 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
         email: req.email,
         password: req.password,
       );
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setString(
+        'userLogin',
+        FirebaseAuth.instance.currentUser.toString(),
+      );
+
       return const Right("Signin successfully");
     } on FirebaseAuthException catch (e) {
       log("$e");
@@ -38,6 +45,12 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
         "email": req.email,
         "fullName": req.fullName,
       });
+
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setString(
+        'userLogin',
+        FirebaseAuth.instance.currentUser.toString(),
+      );
 
       return const Right("Signup successfully");
     } on FirebaseAuthException catch (e) {

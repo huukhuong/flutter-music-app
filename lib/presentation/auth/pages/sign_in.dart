@@ -52,7 +52,7 @@ class SignInPage extends StatelessWidget {
                 padding: WidgetStateProperty.all(EdgeInsets.zero),
               ),
               child: const Text(
-                "Sign In",
+                "Sign Up",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: AppColors.primary,
@@ -119,7 +119,7 @@ class SignInPage extends StatelessWidget {
                       );
                     });
                   },
-                  title: "Create Account",
+                  title: "Sign In",
                 ),
               ],
             ),
